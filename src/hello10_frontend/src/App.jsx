@@ -1,31 +1,55 @@
-import { useState } from 'react';
-import { hello10_backend } from 'declarations/hello10_backend';
+import React from 'react';
+import './App.css'; // Import the CSS file for styling
 
-function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    hello10_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
+const App = () => {
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <div className="app">
+      <header className="header">
+        <h1>Types of Games</h1>
+      </header>
+
+      <section className="game-types">
+        <div className="game-type">
+          <h2>Action Games</h2>
+          <p>
+            Action games are fast-paced games that require quick reflexes and hand-eye coordination. They often involve combat, challenges, and intense scenarios. Examples include first-person shooters and platformers.
+          </p>
+        </div>
+
+        <div className="game-type">
+          <h2>Adventure Games</h2>
+          <p>
+            Adventure games focus on exploration and puzzle-solving. Players often navigate through immersive worlds, interact with characters, and solve mysteries. Examples include point-and-click adventures and open-world games.
+          </p>
+        </div>
+
+        <div className="game-type">
+          <h2>Role-Playing Games (RPGs)</h2>
+          <p>
+            RPGs involve players assuming the roles of characters in a fictional setting. These games often feature character development, story-driven quests, and intricate worlds. Examples include tabletop RPGs and action RPGs.
+          </p>
+        </div>
+
+        <div className="game-type">
+          <h2>Strategy Games</h2>
+          <p>
+            Strategy games require players to use tactics and planning to achieve victory. They can be real-time or turn-based and involve managing resources, making decisions, and executing strategies. Examples include real-time strategy (RTS) and turn-based strategy (TBS) games.
+          </p>
+        </div>
+
+        <div className="game-type">
+          <h2>Simulation Games</h2>
+          <p>
+            Simulation games mimic real-world activities and scenarios, allowing players to experience various aspects of life or systems. Examples include life simulators, vehicle simulators, and city-building games.
+          </p>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <p>&copy; 2024 Game Types. All rights reserved.</p>
+      </footer>
+    </div>
   );
-}
+};
 
 export default App;
